@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 public class Main {
 
 	public static void main(String[] args) {
+		//fart
 		//Chase
 		//Doin ur mom Alex was here https://www.youtube.com/channel/UCqvIjHbQ5CqxfJt4RO32Vxg
 		//no i'm doing YOUR mom - Adilson
