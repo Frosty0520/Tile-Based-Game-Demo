@@ -5,10 +5,6 @@ import javax.swing.JFrame;
 public class Main {
 
 	public static void main(String[] args) {
-		//fart
-		//Chase
-		//Doin ur mom Alex was here https://www.youtube.com/channel/UCqvIjHbQ5CqxfJt4RO32Vxg
-		//no i'm doing YOUR mom - Adilson
 		//GUI setup
 		JFrame window = new JFrame();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
