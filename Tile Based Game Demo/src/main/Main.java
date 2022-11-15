@@ -19,7 +19,7 @@ public class Main {
 		window.add(panel);
 		window.pack();
 		
-		window.setLocationRelativeTo(null); //center the window
+		window.setLocationRelativeTo(null); //center the window 
 		window.setVisible(true);
 		
 		panel.startGameThread();
