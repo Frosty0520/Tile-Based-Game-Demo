@@ -7,11 +7,13 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
+import tile.TileManager;
+
 //implementing Runnable interface allows the Thread to be utilized
 public class GamePanel extends JPanel implements Runnable {
 	
 	//define screen settings
-	final int tileSize = 48; //48x48 tiles
+	public final int tileSize = 48; //48x48 tiles
 	final int maxColumns = 20;
 	final int maxRows = 12;
 	
@@ -23,6 +25,8 @@ public class GamePanel extends JPanel implements Runnable {
 	//keeps the program running constantly
 	public UI ui = new UI(this);
 	Thread gameThread;
+	
+	TileManager tileM = new TileManager(this);
 	
 	Input input = new Input();
 	
@@ -98,6 +102,8 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		//Graphics2D is more useful for making games
 		Graphics2D g2 = (Graphics2D) g;
+		
+		tileM.draw(g2);
 		
 		p.draw(g2);
 		
