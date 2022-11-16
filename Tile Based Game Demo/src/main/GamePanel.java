@@ -99,7 +99,7 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		g2.setColor(Color.white);
 		
-		g2.fillRect(p.getXPosition(), p.getYPosition(), p.getWidth(), p.getHeight());
+		g2.fillRect(p.getXPosition() - p.getWidth()/2, p.getYPosition() - p.getHeight()/2, p.getWidth(), p.getHeight());
 		
 		g2.dispose();
 		
