@@ -7,36 +7,39 @@ public class Player {
 	
 	GamePanel gp;
 	Input input;
-	private int xPosition, yPosition;
+	private int globalX, globalY;
+	private final int screenX, screenY;
 	private int height, width;
 	private int speed;
 	
 	public Player(GamePanel gp, Input input) {
 		this.gp = gp;
 		this.input = input;
-		xPosition = gp.screenWidth/2;
-		yPosition = gp.screenHeight/2;
+		globalX = gp.tileSize*20;
+		globalY = gp.tileSize*20;
+		screenX = gp.screenWidth/2 - (width/2);
+		screenY = gp.screenHeight/2 - (height/2);
 		height = gp.tileSize;
 		width = gp.tileSize;
-		speed = 3;
+		speed = 4;
 	}
 	
 	//getters and setters
 	
 	public int getXPosition() {
-		return this.xPosition;
+		return this.globalX;
 	}
 	
 	public void setXPosition(int xPosition) {
-		this.xPosition = xPosition;
+		this.globalX = xPosition;
 	}
 	
 	public int getYPosition() {
-		return this.yPosition;
+		return this.globalY;
 	}
 	
 	public void setYPosition(int yPosition) {
-		this.yPosition = yPosition;
+		this.globalY = yPosition;
 	}
 	
 	public int getHeight() {
@@ -58,14 +61,14 @@ public class Player {
 		if(input.SPressed) setYPosition(getYPosition()+getSpeed()); //move down
 		if(input.APressed) setXPosition(getXPosition()-getSpeed()); //move left
 		if(input.DPressed) setXPosition(getXPosition()+getSpeed()); //move right
-		
+				
 	}
 	
 	//render the player here
 	public void draw(Graphics2D g2) {
 		g2.setColor(Color.white);
 		
-		g2.fillRect(getXPosition() - getWidth()/2, getYPosition() - getHeight()/2, getWidth(), getHeight());
+		g2.fillRect(screenX, screenY, getWidth(), getHeight());
 	}
 	
 }
