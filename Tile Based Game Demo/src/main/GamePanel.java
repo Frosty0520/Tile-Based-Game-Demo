@@ -21,23 +21,19 @@ public class GamePanel extends JPanel implements Runnable {
 	int FPS = 60;
 	
 	//keeps the program running constantly
+	public UI ui = new UI(this);
 	Thread gameThread;
 	
-	Player p;
+	Input input = new Input();
 	
-	Input input;
-	
+	Player p = new Player(this, input);
+
 	//default constructor
 	public GamePanel() {
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.black);
 		//improves rendering performance
-		this.setDoubleBuffered(true);
-		
-		p = new Player(this, input);
-		
-		input = new Input();
-		
+		this.setDoubleBuffered(true);		
 		//window can accept input
 		this.addKeyListener(input);
 		this.setFocusable(true);
@@ -104,6 +100,9 @@ public class GamePanel extends JPanel implements Runnable {
 		Graphics2D g2 = (Graphics2D) g;
 		
 		p.draw(g2);
+		
+		//UI must be drawn over players and tiles, henceforth the placing AFTER p.draw
+		ui.draw(g2);
 		
 		g2.dispose();
 		
