@@ -57,11 +57,16 @@ public class GamePanel extends JPanel implements Runnable {
 		long lastTime = System.nanoTime();
 		long currentTime;
 		
+		//timer and drawCount variables are used for displaying FPS in the console
+		long timer = 0;
+		int drawCount = 0;
+		
 		while(gameThread != null) {
 
 			currentTime = System.nanoTime();
 			
 			delta += (currentTime - lastTime) / drawInterval;
+			timer += (currentTime-lastTime);
 			
 			//current time is the new last time
 			lastTime = currentTime;
@@ -73,8 +78,14 @@ public class GamePanel extends JPanel implements Runnable {
 				repaint();
 				//set the delta back to 0
 				delta--;
+				drawCount++;
 			}
 			
+			if(timer >= 1000000000) {
+				System.out.println("FPS: " + drawCount);
+				drawCount = 0;
+				timer = 0;
+			}
 		}
 		
 	} //end of run method
