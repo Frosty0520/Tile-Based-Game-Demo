@@ -34,7 +34,7 @@ public class GamePanel extends JPanel implements Runnable {
 		//improves rendering performance
 		this.setDoubleBuffered(true);
 		
-		p = new Player(this);
+		p = new Player(this, input);
 		
 		input = new Input();
 		
@@ -92,12 +92,7 @@ public class GamePanel extends JPanel implements Runnable {
 	
 	//update game data
 	public void update() {
-		
-		if(input.WPressed) p.setYPosition(p.getYPosition()-p.getSpeed()); //move up
-		if(input.SPressed) p.setYPosition(p.getYPosition()+p.getSpeed()); //move down
-		if(input.APressed) p.setXPosition(p.getXPosition()-p.getSpeed()); //move left
-		if(input.DPressed) p.setXPosition(p.getXPosition()+p.getSpeed()); //move right
-		
+		p.update();
 	}
 	
 	//built in method for drawing things on a JPanel
@@ -108,9 +103,7 @@ public class GamePanel extends JPanel implements Runnable {
 		//Graphics2D is more useful for making games
 		Graphics2D g2 = (Graphics2D) g;
 		
-		g2.setColor(Color.white);
-		
-		g2.fillRect(p.getXPosition() - p.getWidth()/2, p.getYPosition() - p.getHeight()/2, p.getWidth(), p.getHeight());
+		p.draw(g2);
 		
 		g2.dispose();
 		
