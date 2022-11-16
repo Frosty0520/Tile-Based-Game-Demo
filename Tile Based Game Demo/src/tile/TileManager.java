@@ -2,10 +2,12 @@ package tile;
 
 import java.io.IOException;
 
+import javax.imageio.ImageIO;
+
 import main.GamePanel;
 
 public class TileManager {
-	
+		
 	GamePanel gp;
 	Tile[] tiles;
 	
@@ -19,6 +21,15 @@ public class TileManager {
 	
 	//load tile images here
 	public void getTileImage() {
+		
+		try {
+			
+			tiles[0] = new Tile();
+			tiles[0].image = ImageIO.read(getClass().getResourceAsStream(""));
+			
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 }
