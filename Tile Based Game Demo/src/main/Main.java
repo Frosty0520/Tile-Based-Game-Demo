@@ -4,8 +4,6 @@ import javax.swing.JFrame;
 
 public class Main {
 
-	//jordan never did that move
-	//industrials
 	public static void main(String[] args) {
 		//GUI setup
 		JFrame window = new JFrame();
