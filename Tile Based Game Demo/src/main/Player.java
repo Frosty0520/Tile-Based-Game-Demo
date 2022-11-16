@@ -9,8 +9,8 @@ public class Player {
 	
 	public Player(GamePanel gp) {
 		this.gp = gp;
-		xPosition = 100;
-		yPosition = 100;
+		xPosition = gp.screenWidth/2;
+		yPosition = gp.screenHeight/2;
 		height = gp.tileSize;
 		width = gp.tileSize;
 		speed = 3;
